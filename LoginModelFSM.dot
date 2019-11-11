@@ -1,0 +1,16 @@
+digraph LoginModelFSM {
+
+  // Nodes
+  0 [ style=filled, shape=ellipse, peripheries=1, fillcolor=lightgray,
+      tooltip="{'LoginModel': {'init': True, 'signedIn': False, 'signedOut': False}}" ]
+  1 [ style=filled, shape=ellipse, peripheries=1, fillcolor=white,
+      tooltip="{'LoginModel': {'init': False, 'signedIn': False, 'signedOut': True}}" ]
+  2 [ style=filled, shape=ellipse, peripheries=2, fillcolor=white,
+      tooltip="{'LoginModel': {'init': False, 'signedIn': True, 'signedOut': True}}" ]
+
+  // Transitions
+  0 -> 1 [ label="initialize()", tooltip="initialize()" ]
+  1 -> 2 [ label="login()", tooltip="login()" ]
+  2 -> 1 [ label="logout()", tooltip="logout()" ]
+  1 -> 1 [ label="logout()", tooltip="logout()" ]
+}
